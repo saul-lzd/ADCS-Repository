@@ -5,7 +5,7 @@ def main():
     int_numbers = [1, 3200, 5000, 897, 10, 2648, 45896512487, 0, 10000000001, 98]
     str_numbers = ["0", "-26987", "+3200", "9", "00001", "98sa11", "--348", "550001111004", "4007", "++0648"]
 
-    print("\ncustom int() function")
+    print("\ncustom str() function")
     print_separator()
     for int_n in int_numbers:
         try:
@@ -17,7 +17,7 @@ def main():
 
         print_separator()
 
-    print("\ncustom str() function")
+    print("\ncustom int() function")
     print_separator()
     for str_n in str_numbers:
         try:
@@ -31,7 +31,7 @@ def main():
 
 
 # --------------------------------------------------------
-# Custom implementation of the int() function
+# Custom implementation of the str() function
 # --------------------------------------------------------
 def int_to_str(int_number):
     if int_number == 0:
@@ -64,7 +64,7 @@ def int_to_str(int_number):
 
 
 # --------------------------------------------------------
-# Custom implementation of the str() function
+# Custom implementation of the int() function
 # --------------------------------------------------------
 def str_to_int(str_number):
     str_number = prepare_str(str_number)
