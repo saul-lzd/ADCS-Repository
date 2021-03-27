@@ -6,8 +6,8 @@ import sys
 
 def main():
     words = dict.fromkeys({}, 0)
-    args = readArgs()
-    text = readFile()
+    args = read_args()
+    text = read_file()
 
     for w in args:
         words[w] = 0
@@ -29,7 +29,7 @@ def formatText(txt):
     return
 
 
-def readArgs():
+def read_args():
     args = sys.argv
     if len(args) > 0:
         args.pop(0)
@@ -38,7 +38,7 @@ def readArgs():
         raise Exception("No arguments provided")
 
 
-def readFile():
+def read_file():
     file = open("simple.txt", "r")
     return file.read()
 
