@@ -19,7 +19,7 @@ def main():
         # Exit Game by User
         if user_input == "exit":
             print_exit(numberToGuess)
-            writeLog(False)
+            write_log(False)
             break
 
         attemptsLog.append(user_input)
@@ -29,17 +29,17 @@ def main():
             if 30 >= user_input >= 1:
                 if user_input == numberToGuess:
                     found = True
-                    writeLog(found)
+                    write_log(found)
                     print_success_game(user_input)
                 else:
-                    print(processInput(user_input))
+                    print(process_input(user_input))
             else:
                 print("Number should be in range [1-30]")
         else:
             print("Ups! the input is not a number, try again")
 
 
-def processInput(number):
+def process_input(number):
     dif = numberToGuess - number
 
     if dif < 0:
@@ -89,7 +89,7 @@ def print_success_game(number):
     print(" ")
 
 
-def writeLog(success):
+def write_log(success):
     file = open("GuessingSteps.txt", "w+")
     file.write("===========[START]==============\n")
 
