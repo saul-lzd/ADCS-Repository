@@ -4,7 +4,6 @@
 import random
 
 numberToGuess = random.randint(1, 30)
-# attemptsCounter = 0
 attemptsLog = []
 found = False
 
@@ -16,10 +15,9 @@ def main():
     while not found:
         user_input = input("> Guess the number:")
 
-        # Exit Game by User
         if user_input == "exit":
             print_exit(numberToGuess)
-            writeLog(False)
+            write_log(False)
             break
 
         attemptsLog.append(user_input)
@@ -29,21 +27,19 @@ def main():
             if 30 >= user_input >= 1:
                 if user_input == numberToGuess:
                     found = True
-                    writeLog(found)
-                    print_success_game(user_input)
+                    write_log(found)
+                    print_success_game()
                 else:
-                    print(processInput(user_input))
+                    print(process_input(user_input))
             else:
                 print("Number should be in range [1-30]")
         else:
             print("Ups! the input is not a number, try again")
 
 
-def processInput(number):
+def process_input(number):
     dif = numberToGuess - number
-
-    if dif < 0:
-        dif = dif * -1
+    dif = dif * -1 if (dif < 0) else dif
 
     if dif <= 3:
         msg = "You're too close"
@@ -58,48 +54,33 @@ def processInput(number):
 
 
 def print_start():
-    print(" ")
-    print("======================[START GAME]===========================")
-    print("## Rules:")
+    print("\n======================[START GAME]===========================")
     print("## Try to guess a number between 1 and 30")
     print("## I will tell you if you're: Too far, far or close")
     print("## The game ends when you guess the number or type 'exit'.")
     print("==============================================================")
-    print(" ")
 
 
 def print_exit(number):
-    print(" ")
+    print("You give up, number to guess was: {number}".format(number=number))
     print("===========[END OF GAME]==============")
-    print("You give up!")
-    print("Number to guess was:", number)
-    print("Attempts:", len(attemptsLog))
-    print("======================================")
-    print(" ")
 
 
-def print_success_game(number):
-    print(" ")
+def print_success_game():
+    print("You win!!! you guess the number")
+    print("GuessingSteps.txt")
     print("===========[END OF GAME]==============")
-    print("You Win!!!!")
-    print("Number:", number)
-    print("Attempts:", len(attemptsLog))
-    print("Results: GuessingSteps.txt")
-    print("======================================")
-    print(" ")
 
 
-def writeLog(success):
+def write_log(success):
     file = open("GuessingSteps.txt", "w+")
     file.write("===========[START]==============\n")
 
     for idx, number in enumerate(attemptsLog, start=1):
         file.write("Attempt {idx}:  {value} \n".format(idx=idx, value=number))
 
-    file.write("-------------------\n")
-
     if success:
-        file.write("You win, you guess the number: {number}\n".format(number=numberToGuess))
+        file.write("You win, you guess the number")
     else:
         file.write("You give up, number to guess was : {number}\n".format(number=numberToGuess))
 

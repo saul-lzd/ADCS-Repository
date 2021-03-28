@@ -2,8 +2,8 @@
 # author: Saul DLD
 
 def main():
-    int_numbers = [1, 3200, 5000, 897, 10, 2648, 45896512487, 0, 10000000001, 98]
-    str_numbers = ["0", "-26987", "+3200", "9", "00001", "98sa11", "--348", "550001111004", "4007", "++0648"]
+    int_numbers = [1]
+    str_numbers = ["1"]
 
     print("\ncustom str() function")
     print_separator()

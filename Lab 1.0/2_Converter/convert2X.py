@@ -12,14 +12,14 @@ def main():
             exit = True
         else:
             try:
-                user_input = validateInput(user_input)
-                print("Binary: ", "".join(convert2Binary(user_input)))
+                user_input = validate_input(user_input)
+                print("Binary: ", "".join(convert_2_binary(user_input)))
                 print("Hexadecimal:  0x", "".join(convert2Hexa(user_input)))
             except Exception as ex:
                 print("Exception: ", ex)
 
 
-def validateInput(number):
+def validate_input(number):
     try:
         number = int(number)
     except Exception as e:
@@ -31,7 +31,7 @@ def validateInput(number):
     return number
 
 
-def convert2Binary(number):
+def convert_2_binary(number):
     binary = []
     dividend = number
 
