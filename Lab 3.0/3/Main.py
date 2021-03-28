@@ -61,5 +61,5 @@ def save_directory(directory):
         file.write("[{index}] {person}\n".format(index=idx, person=person.to_string()))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

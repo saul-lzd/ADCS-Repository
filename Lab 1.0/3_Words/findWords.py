@@ -25,10 +25,6 @@ def main():
     print(words)
 
 
-def formatText(txt):
-    return
-
-
 def read_args():
     args = sys.argv
     if len(args) > 0:
