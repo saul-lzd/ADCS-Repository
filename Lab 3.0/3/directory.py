@@ -9,9 +9,13 @@ class Directory:
         self.persons.pop(position - 1)
 
     def find_by_email_age(self, email, age):
+        p = None
         for person in self.persons:
             if person.email == email and person.age == age:
-                return person
+                p = person
+                break;
+                
+        return p
 
     def list(self):
         for idx, person in enumerate(self.persons, start=1):

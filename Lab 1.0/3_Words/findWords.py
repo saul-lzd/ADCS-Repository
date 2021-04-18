@@ -29,9 +29,10 @@ def read_args():
     args = sys.argv
     if len(args) > 0:
         args.pop(0)
-        return args
     else:
         raise Exception("No arguments provided")
+
+    return args
 
 
 def read_file():
