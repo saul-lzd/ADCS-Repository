@@ -3,8 +3,8 @@
 
 import random
 
-numberToGuess = random.randint(1, 30)
-attemptsLog = []
+number_to_guess = random.randint(1, 30)
+attempts_log = []
 found = False
 
 
@@ -16,16 +16,16 @@ def main():
         user_input = input("> Guess the number:")
 
         if user_input == "exit":
-            print_exit(numberToGuess)
+            print_exit(number_to_guess)
             write_log(False)
             break
 
-        attemptsLog.append(user_input)
+        attempts_log.append(user_input)
 
         if user_input.isnumeric():
             user_input = int(user_input)
             if 30 >= user_input >= 1:
-                if user_input == numberToGuess:
+                if user_input == number_to_guess:
                     found = True
                     write_log(found)
                     print_success_game()
@@ -38,7 +38,7 @@ def main():
 
 
 def process_input(number):
-    dif = numberToGuess - number
+    dif = number_to_guess - number
     dif = dif * -1 if (dif < 0) else dif
 
     if dif <= 3:
@@ -76,13 +76,13 @@ def write_log(success):
     file = open("GuessingSteps.txt", "w+")
     file.write("===========[START]==============\n")
 
-    for idx, number in enumerate(attemptsLog, start=1):
+    for idx, number in enumerate(attempts_log, start=1):
         file.write("Attempt {idx}:  {value} \n".format(idx=idx, value=number))
 
     if success:
         file.write("You win, you guess the number")
     else:
-        file.write("You give up, number to guess was : {number}\n".format(number=numberToGuess))
+        file.write("You give up, number to guess was : {number}\n".format(number=number_to_guess))
 
     file.write("===========[END OF GAME]==============\n")
     file.close()

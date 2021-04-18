@@ -1,15 +1,16 @@
 # Program: Convert decimal number to binary and hexadecimal
 # author: Saul DLD
 
-def main():
-    exit = False
 
-    while not exit:
+def main():
+    terminate = False;
+
+    while not terminate:
         user_input = input("> Number to convert:")
 
         if user_input == "exit":
             print("Exit program")
-            exit = True
+            terminate = True
         else:
             try:
                 user_input = validate_input(user_input)
@@ -22,7 +23,7 @@ def main():
 def validate_input(number):
     try:
         number = int(number)
-    except Exception as e:
+    except Exception:
         raise Exception("Input is not a number")
 
     if number < 0:
@@ -58,18 +59,18 @@ def convert2Hexa(number):
 
     hexa.append(dividend)
 
-    for i in range(len(hexa)):
-        if hexa[i] == 10:
+    for i, element in enumerate(hexa):
+        if element == 10:
             hexa[i] = "A"
-        elif hexa[i] == 11:
+        elif element == 11:
             hexa[i] = "B"
-        elif hexa[i] == 12:
+        elif element == 12:
             hexa[i] = "C"
-        elif hexa[i] == 13:
+        elif element == 13:
             hexa[i] = "D"
-        elif hexa[i] == 14:
+        elif element == 14:
             hexa[i] = "E"
-        elif hexa[i] == 15:
+        elif element == 15:
             hexa[i] = "F"
         else:
             hexa[i] = str(hexa[i])

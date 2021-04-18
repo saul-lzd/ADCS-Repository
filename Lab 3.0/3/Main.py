@@ -45,7 +45,8 @@ def find_user(directory, email, age):
         print("> Person not found: {user}".format(user=email))
     else:
         print("> ", p.to_string())
-        return p
+    
+    return p
 
 
 def show_directory(directory):
