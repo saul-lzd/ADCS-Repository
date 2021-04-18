@@ -5,16 +5,12 @@ cd ADCS-Repository
 
 mkdir code-analysis
 
-# display output to terminal
+# display outputs
 prospector
-
-# save output to prospector.txt file in the root of the project
-prospector -o text:./code-analysis/prospector.txt
-
-# show output to terminal
 radon cc -a -s ./
 
-# save output to radon.txt file in the root of the project
+# create files
+prospector -o text:./code-analysis/prospector.txt
 radon cc -a -s -O code-analysis/radon.txt ./
 
 
